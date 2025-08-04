@@ -2,7 +2,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Test.Models.DTO
 {
-    public class AddWalkRequestDto
+    public class UpdateWalkRequestDto
     {
         [Required]
         [MaxLength(100)]

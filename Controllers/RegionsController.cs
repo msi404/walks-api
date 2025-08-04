@@ -43,24 +43,38 @@ namespace Test.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] AddRegionRequestDto addRegionRequestDto)
         {
-            var regionDomainModel = mapper.Map<Region>(addRegionRequestDto);
-            regionDomainModel = await regionRepository.CreateAsync(regionDomainModel);
-            var regionDto = mapper.Map<RegionDto>(regionDomainModel);
-            return CreatedAtAction(nameof(GetById), new { id = regionDto.Id }, regionDto);
+            if (ModelState.IsValid)
+            {
+                var regionDomainModel = mapper.Map<Region>(addRegionRequestDto);
+                regionDomainModel = await regionRepository.CreateAsync(regionDomainModel);
+                var regionDto = mapper.Map<RegionDto>(regionDomainModel);
+                return CreatedAtAction(nameof(GetById), new { id = regionDto.Id }, regionDto);
+            }
+            else
+            {
+                return BadRequest(ModelState);
+          }
         }
 
         [HttpPut]
         [Route("{id:Guid}")]
         public async Task<IActionResult> Update([FromRoute] Guid id, [FromBody] UpdateRegionRequestDto updateRegionRequestDto)
         {
-            var regionDomainModel = mapper.Map<Region>(updateRegionRequestDto);
-           regionDomainModel = await regionRepository.UpdateAsync(id, regionDomainModel);
-            if (regionDomainModel == null)
+            if (ModelState.IsValid)
             {
-                return NotFound();
-           }
-            var regionDto = mapper.Map<RegionDto>(regionDomainModel);
-            return Ok(regionDto);
+                var regionDomainModel = mapper.Map<Region>(updateRegionRequestDto);
+                regionDomainModel = await regionRepository.UpdateAsync(id, regionDomainModel);
+                if (regionDomainModel == null)
+                {
+                    return NotFound();
+                }
+                var regionDto = mapper.Map<RegionDto>(regionDomainModel);
+                return Ok(regionDto);
+            }
+            else
+            {
+                return BadRequest(ModelState);
+            }
         }
 
         [HttpDelete]
