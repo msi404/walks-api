@@ -21,9 +21,11 @@ namespace Test.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll([FromQuery] string? filterOn, [FromQuery] string? filterQuery,
+        [FromQuery] string? sortBy, [FromQuery] bool? isAscending, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
-            var regionsDomaion = await regionRepository.GetAllAsync();
+            var regionsDomaion = await regionRepository.GetAllAsync(filterOn, filterQuery,
+            sortBy, isAscending ?? true, pageNumber, pageSize);
             var regionsDto = mapper.Map<List<RegionDto>>(regionsDomaion);
             return Ok(regionsDto);
         }

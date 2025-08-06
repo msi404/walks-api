@@ -34,9 +34,12 @@ namespace Test.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll([FromQuery] string? filterOn, [FromQuery] string? filterQuery)
+        public async Task<IActionResult> GetAll([FromQuery] string? filterOn, [FromQuery] string? filterQuery,
+        [FromQuery] string? sortBy, [FromQuery] bool? isAscending, [FromQuery] int pageNumber = 1, [FromQuery] int pageSize = 10)
         {
-            var walksDomainModel = await walkRepository.GettAllAsync(filterOn, filterQuery);
+            var walksDomainModel = await walkRepository.GettAllAsync(filterOn, filterQuery,
+            sortBy, isAscending ?? true,
+            pageNumber, pageSize);
             return Ok(mapper.Map<List<WalkDto>>(walksDomainModel));
         }
 
