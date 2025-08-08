@@ -167,3 +167,9 @@
 /Users/msi404/Desktop/Test/obj/Debug/net9.0/ref/Test.dll
 /Users/msi404/Desktop/Test/bin/Debug/net9.0/Scalar.AspNetCore.dll
 /Users/msi404/Desktop/Test/bin/Debug/net9.0/AutoMapper.dll
+/Users/msi404/Desktop/Test/bin/Debug/net9.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/msi404/Desktop/Test/bin/Debug/net9.0/Microsoft.AspNetCore.Cryptography.Internal.dll
+/Users/msi404/Desktop/Test/bin/Debug/net9.0/Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+/Users/msi404/Desktop/Test/bin/Debug/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/msi404/Desktop/Test/bin/Debug/net9.0/Microsoft.Extensions.Identity.Core.dll
+/Users/msi404/Desktop/Test/bin/Debug/net9.0/Microsoft.Extensions.Identity.Stores.dll

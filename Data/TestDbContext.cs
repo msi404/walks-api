@@ -5,7 +5,7 @@ namespace Test.Data
 {
     public class TestDbContext : DbContext
     {
-        public TestDbContext(DbContextOptions dbContextOptions) : base(dbContextOptions) { }
+        public TestDbContext(DbContextOptions<TestDbContext> dbContextOptions) : base(dbContextOptions) { }
 
         public DbSet<Difficulty> Difficulties { get; set; }
         public DbSet<Region> Regions { get; set; }

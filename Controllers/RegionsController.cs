@@ -1,4 +1,5 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Test.Models.Domain;
 using Test.Models.DTO;
@@ -8,7 +9,7 @@ namespace Test.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-
+    [Authorize]
     public class RegionsController : ControllerBase
     {
 
